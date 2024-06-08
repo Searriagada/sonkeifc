@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Keania+One&display=swap');
+
+.imgtop-section{
+    background-image: url('../assets/img-header.png');
+    background-repeat: repeat;
+    background-attachment: initial;
+    background-size: cover;
+    background-position: center center;
+    height: 20em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+.img-text{
+    font-family: 'Keania One', sans-serif !important;
+    color: #000000;
+    font-size: 40px;
+    text-shadow: 2px 2px 4px rgba(0,0,0, 0.5);   
+    margin-bottom: 20px;
+    font-family: keani;
+    
+}
