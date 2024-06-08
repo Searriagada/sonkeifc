@@ -4,6 +4,7 @@ import './App.css';
 import logo from './assets/LOGO.webp';
 import { ReactComponent as HamburgerButton } from './assets/hamburger-button.svg';
 import { ImgTop } from './components/ImgTop';
+import { Historia } from './components/Historia';
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -82,7 +83,10 @@ const App = () => {
               text='VEN A SER PARTE DE LOS MEJORES'
             />
             </section>
-            
+            <section className='historia-section'>
+              <Historia 
+              textOne={'Al igual que tú, amamos el fútbol, nos apasiona correr por la cancha y entregarlo todo en cada partido. '}/>
+            </section>
           </main>
         </div>
       </Router>
