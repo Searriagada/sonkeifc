@@ -16,7 +16,6 @@ export const Historia = ({textOne, textTwo}) => {
             <div className='primer-panel'>
                 <p className='texto-historia'>{textTwo}</p>
                 <img src={SecondImg}></img>
-                
             </div>
         </div>
         </>
