@@ -1,0 +1,25 @@
+.historia-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+.primer-panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        to top,
+        #555668 0%,
+        #555668 70%,
+        #FFFDD1 70%,
+        #FFFDD1 100%
+    ) ;
+}
+
+.primer-panel img {
+    max-width: 300px;
+}

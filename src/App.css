@@ -26,6 +26,7 @@ main {
   width: 100%;
   flex: 1;
   padding-top: 60px;
+  background-color: #FFFDD1;
 }
 
 .logo {

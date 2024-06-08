@@ -85,7 +85,8 @@ const App = () => {
             </section>
             <section className='historia-section'>
               <Historia 
-              textOne={'Al igual que tú, amamos el fútbol, nos apasiona correr por la cancha y entregarlo todo en cada partido. '}/>
+              textOne={'Al igual que tú, amamos el fútbol, nos apasiona correr por la cancha y entregarlo todo en cada partido. '}
+              textTwo={"El fútbol no es solo un deporte para nosotros, es una forma de vida, una pasión que nos impulsa a superarnos día a día."}/>
             </section>
           </main>
         </div>
