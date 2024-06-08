@@ -1,38 +1,187 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Keania+One&display=swap');
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #010330;
+  width: 100%;
+  padding: 5px 10px;
+  z-index: 58;
+  position: fixed;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+main { 
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+  padding-top: 60px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 60px;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  align-items: end;
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 4px 0;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation li {
+  margin: 0 15px;
+}
+
+.navigation a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navigation a:hover {
+  text-decoration: none;
+  color: #0667DE;
+}
+
+.navigation .active {
+  color: #0667DE; /* Color para el enlace activo */
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -450px; /* Escondido fuera de la vista */
+  width: 250px;
+  height: 100%;
+  background-color: #010330;
+  transition: right 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top: 60px; /* Espacio para el header */
+  z-index: 60; /* Asegura que el menú esté por encima de otros elementos */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); 
 }
 
-.App-link {
-  color: #61dafb;
+.side-menu.open {
+  right: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.side-menu li {
+  margin: 10px 0;
+}
+
+.side-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 10px 0;
+}
+
+.side-menu a:hover {
+  text-decoration: none;
+  color: #0667DE;
+}
+
+.side-menu .active {
+  color: #0667DE; 
+}
+
+.overlay-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 59; 
+  pointer-events: none; 
+}
+
+.overlay-menu.open {
+  opacity: 1;
+  pointer-events: auto; 
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
   }
-  to {
-    transform: rotate(360deg);
+
+  .navigation {
+    display: none;
+  }
+
+  .side-menu {
+    display: flex; 
+  }
+}
+
+@media (min-width: 769px) {
+  .logo img {
+    width: 80px;
+  }
+
+  .navigation {
+    display: flex;
+  }
+
+  .side-menu {
+    display: none; 
+  }
+
+  .overlay-menu {
+    display: none; 
   }
 }
