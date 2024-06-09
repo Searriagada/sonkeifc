@@ -4,9 +4,14 @@ import './App.css';
 import './styles/CardJugador.css'
 import logo from './assets/LOGO.webp';
 import { ReactComponent as HamburgerButton } from './assets/hamburger-button.svg';
+import { FetchCards } from './api/ApiCard'
+import { ApiTestomonio, FetchTestimonio } from './api/ApiTestimonio'
+import { Tittle } from './components/Tittle';
 import { ImgTop } from './components/ImgTop';
 import { Historia } from './components/Historia';
 import { CardJugador } from './components/CardJugador';
+import { Carousel } from './components/Carousel';
+
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,19 +21,13 @@ const App = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-  const [cards, setCards] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost/sonkeifc_back/controller/PlayerController.php')
-      .then((response) => response.json())
-      .then((data) => {
-        setCards(data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
+  //Instanciar endpoint desde bd con tabla Jugadores
+  const equipo = FetchCards('http://localhost/sonkeifc_back/controller/PlayerController.php');
 
+  //Instanciar endpoint desde bd con tabla Tesimonios
+  const url = 'http://localhost/sonkeifc_back/controller/TestimonyController.php';
+  const testimonioData = FetchTestimonio(url);
   return (
     <>
       <Router>
@@ -102,11 +101,14 @@ const App = () => {
                 textTwo={"El fútbol no es solo un deporte para nosotros, es una forma de vida, una pasión que nos impulsa a superarnos día a día."} />
             </section>
             <section className='equipo-section'>
+              <Tittle
+                text='Nuestro equipo'
+              />
               <div className='cardContainer'>
                 {
-                  [cards.map((card) => (
-                    <
-                      CardJugador
+                  [equipo.map((card) => (
+                    <CardJugador
+
                       id={card.id_jugador}
                       posicion={card.posicion}
                       nombre={card.nombre}
@@ -116,6 +118,21 @@ const App = () => {
                     />
                   ))]
                 }
+              </div>
+            </section>
+            <section>
+              <Tittle
+                text='Próximas fechas'
+              />
+            </section>
+            <section className='testimonio-section'>
+              <Tittle
+                text='Testimonios'
+              />
+              <div className='carouselSection'>
+                <Carousel 
+                data = {testimonioData.slides}
+              />
               </div>
             </section>
           </main>
