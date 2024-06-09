@@ -1,22 +1,23 @@
 import React from "react";
-import { FetchCards } from '../api/ApiCard'
-import { FetchTestimonio } from '../api/ApiTestimonio'
+import { ApiArray } from '../api/ApiArray'
+import { ApiObject } from '../api/ApiObject'
 import { Tittle } from '../components/Tittle';
 import { ImgTop } from '../components/ImgTop';
 import { Historia } from '../components/Historia';
 import { CardJugador } from '../components/CardJugador';
 import { Carousel } from '../components/Carousel';
-import '../styles/CardJugador.css';
+import { Table } from "../components/Table";
+import '../styles/Home.css';
 
 export const Home = () => {
 
     //Instanciar endpoint desde bd con tabla Jugadores
-    const equipo = FetchCards('http://localhost/sonkeifc_back/controller/PlayerController.php');
+    const equipo = ApiArray('http://localhost/sonkeifc_back/controller/PlayerController.php');
 
     //Instanciar endpoint desde bd con tabla Tesimonios
-    const url = 'http://localhost/sonkeifc_back/controller/TestimonyController.php';
-    const testimonioData = FetchTestimonio(url);
-    
+    const testimonioData = ApiObject('http://localhost/sonkeifc_back/controller/TestimonyController.php');
+    //Instanciar endpoinrts desde bd con tabla Entrenamiento
+    const entrenamiento = ApiObject('http://localhost/sonkeifc_back/controller/TrainingController.php')
     return (
         <>
             <section className='imgtop-section'>
@@ -53,6 +54,12 @@ export const Home = () => {
                 <Tittle
                     text='Próximas fechas'
                 />
+                <div className="table-entrenamiento">
+
+                    <Table
+                        datas={entrenamiento.slides}
+                    />
+                </div>
             </section>
             <section className='testimonio-section' id='testimonio'>
                 <Tittle

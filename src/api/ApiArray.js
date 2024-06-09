@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const FetchCards = (url) => {
+export const ApiArray = (url) => {
     const [cards, setCards] = useState([]);
 
     useEffect(() => {

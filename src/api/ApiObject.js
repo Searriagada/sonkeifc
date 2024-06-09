@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const FetchTestimonio = (url) => {
+export const ApiObject = (url) => {
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
