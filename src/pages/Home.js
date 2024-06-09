@@ -7,6 +7,7 @@ import { Historia } from '../components/Historia';
 import { CardJugador } from '../components/CardJugador';
 import { Carousel } from '../components/Carousel';
 import { Table } from "../components/Table";
+import { Formulario } from "../components/Formulario";
 import '../styles/Home.css';
 
 export const Home = () => {
@@ -71,8 +72,13 @@ export const Home = () => {
                     />
                 </div>
             </section>
-            <section>
-                <h1>Formulario</h1>
+            <section className="contacto-section" id="contacto">
+                <Tittle
+                    text="Contacto"
+                />
+                <div className="formularioSection">
+                    <Formulario />
+                </div>
             </section>
         </>
     );
