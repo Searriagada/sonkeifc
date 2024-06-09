@@ -1,17 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
-import './App.css';
-import './styles/CardJugador.css'
-import logo from './assets/LOGO.webp';
 import { ReactComponent as HamburgerButton } from './assets/hamburger-button.svg';
-import { FetchCards } from './api/ApiCard'
-import { ApiTestomonio, FetchTestimonio } from './api/ApiTestimonio'
-import { Tittle } from './components/Tittle';
-import { ImgTop } from './components/ImgTop';
-import { Historia } from './components/Historia';
-import { CardJugador } from './components/CardJugador';
-import { Carousel } from './components/Carousel';
-
+import './App.css';
+import logo from './assets/LOGO.webp';
+import { Home } from './pages/Home';
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,12 +14,6 @@ const App = () => {
     setMenuOpen(!menuOpen);
   };
 
-  //Instanciar endpoint desde bd con tabla Jugadores
-  const equipo = FetchCards('http://localhost/sonkeifc_back/controller/PlayerController.php');
-
-  //Instanciar endpoint desde bd con tabla Tesimonios
-  const url = 'http://localhost/sonkeifc_back/controller/TestimonyController.php';
-  const testimonioData = FetchTestimonio(url);
   return (
     <>
       <Router>
@@ -42,22 +28,22 @@ const App = () => {
               <nav className="navigation">
                 <ul>
                   <li>
-                    <NavLink exact to="/" activeClassName="active" className="nav-link">Inicio</NavLink>
+                    <NavLink exact to="/" activeClassName="active" >Inicio</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/historia" activeClassName="active" className="nav-link">Historia</NavLink>
+                    <a href="#historia" activeClassName="active" >Historia</a>
                   </li>
                   <li>
-                    <NavLink to="/equipo" activeClassName="active" className="nav-link">Equipo</NavLink>
+                    <a href="#equipo" activeClassName="active" >Equipo</a>
                   </li>
                   <li>
-                    <NavLink to="/entrenamiento" activeClassName="active" className="nav-link">Entrenamiento</NavLink>
+                    <a href="#entrenamiento" activeClassName="active" >Entrenamiento</a>
                   </li>
                   <li>
-                    <NavLink to="/testimonios" activeClassName="active" className="nav-link">Testimonios</NavLink>
+                    <a href="#testimonio" activeClassName="active" >Testimonios</a>
                   </li>
                   <li>
-                    <NavLink to="/contacto" activeClassName="active" className="nav-link">Contacto</NavLink>
+                    <a href="#contacto" activeClassName="active" >Contacto</a>
                   </li>
                 </ul>
               </nav>
@@ -70,71 +56,29 @@ const App = () => {
           <nav className={`side-menu ${menuOpen ? 'open' : ''}`}>
             <ul>
               <li>
-                <NavLink exact to="/" activeClassName="active" className="nav-link" onClick={toggleMenu}>Inicio</NavLink>
+                <NavLink exact to="/" activeClassName="active" onClick={toggleMenu}>Inicio</NavLink>
               </li>
               <li>
-                <NavLink to="/historia" activeClassName="active" className="nav-link" onClick={toggleMenu}>Historia</NavLink>
+                <a href="#historia" activeClassName="active" onClick={toggleMenu}>Historia</a>
               </li>
               <li>
-                <NavLink to="/equipo" activeClassName="active" className="nav-link" onClick={toggleMenu}>Equipo</NavLink>
+                <a href="#equipo" activeClassName="active" onClick={toggleMenu}>Equipo</a>
               </li>
               <li>
-                <NavLink to="/entrenamiento" activeClassName="active" className="nav-link" onClick={toggleMenu}>Entrenamiento</NavLink>
+                <a href="#entrenamiento" activeClassName="active" onClick={toggleMenu}>Entrenamiento</a>
               </li>
               <li>
-                <NavLink to="/testimonios" activeClassName="active" className="nav-link" onClick={toggleMenu}>Testimonios</NavLink>
+                <a href="#testimonio" activeClassName="active" onClick={toggleMenu}>Testimonios</a>
               </li>
               <li>
-                <NavLink to="/contacto" activeClassName="active" className="nav-link" onClick={toggleMenu}>Contáctenos</NavLink>
+                <a href="#contacto" activeClassName="active" onClick={toggleMenu}>Contáctenos</a>
               </li>
             </ul>
           </nav>
           <main>
-            <section className='imgtop-section'>
-              <ImgTop
-                text='VEN A SER PARTE DE LOS MEJORES'
-              />
-            </section>
-            <section className='historia-section'>
-              <Historia
-                textOne={'Al igual que tú, amamos el fútbol, nos apasiona correr por la cancha y entregarlo todo en cada partido. '}
-                textTwo={"El fútbol no es solo un deporte para nosotros, es una forma de vida, una pasión que nos impulsa a superarnos día a día."} />
-            </section>
-            <section className='equipo-section'>
-              <Tittle
-                text='Nuestro equipo'
-              />
-              <div className='cardContainer'>
-                {
-                  [equipo.map((card) => (
-                    <CardJugador
-
-                      id={card.id_jugador}
-                      posicion={card.posicion}
-                      nombre={card.nombre}
-                      profesion={card.profesion}
-                      rrss={card.rrss}
-                      imagen={card.imagen}
-                    />
-                  ))]
-                }
-              </div>
-            </section>
-            <section>
-              <Tittle
-                text='Próximas fechas'
-              />
-            </section>
-            <section className='testimonio-section'>
-              <Tittle
-                text='Testimonios'
-              />
-              <div className='carouselSection'>
-                <Carousel 
-                data = {testimonioData.slides}
-              />
-              </div>
-            </section>
+            <Routes>
+              <Route exact path ="/" element={<Home />} />
+            </Routes>
           </main>
         </div>
       </Router>
