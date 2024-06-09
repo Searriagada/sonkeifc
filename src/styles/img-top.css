@@ -10,7 +10,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: left;
     flex-direction: column;
 }
 .img-text{
