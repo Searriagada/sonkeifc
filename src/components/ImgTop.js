@@ -9,7 +9,7 @@ export const ImgTop = ({text}) => {
         <div className='button-container'>
             <Button 
             idsection='contacto'
-            text='Inscribete'
+            text='Escríbenos!'
             />
         </div>
         </>
