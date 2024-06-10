@@ -28,7 +28,9 @@ export const Home = () => {
             </section>
             <section className='historia-section' id="historia">
                 <Historia
-                    textOne={'Al igual que tú, amamos el fútbol, nos apasiona correr por la cancha y entregarlo todo en cada partido. '}
+                    tittleOne={'LO HACEMOS CON PASIÓN'}
+                    textOne={'Llevamos más de 10 años impulsando el deporte y la vida sana en Maipú, grandes deportistas han salido de nuestras canchas. '}
+                    tittleTwo={'MÁS QUE UN HOBBY'}
                     textTwo={"El fútbol no es solo un deporte para nosotros, es una forma de vida, una pasión que nos impulsa a superarnos día a día."} />
             </section>
             <section className='equipo-section' id="equipo">
