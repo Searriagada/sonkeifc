@@ -13,6 +13,15 @@ const App = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+  /**
+   * Función para lograr que menú inicio regrese al inicio
+   */
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
 
   return (
     <>
@@ -28,7 +37,7 @@ const App = () => {
               <nav className="navigation">
                 <ul>
                   <li>
-                    <NavLink exact to="/" activeClassName="active" >Inicio</NavLink>
+                    <NavLink exact to="/" onClick={scrollToTop} >Inicio</NavLink>
                   </li>
                   <li>
                     <a href="#historia" activeClassName="active" >Historia</a>
@@ -56,7 +65,7 @@ const App = () => {
           <nav className={`side-menu ${menuOpen ? 'open' : ''}`}>
             <ul>
               <li>
-                <NavLink exact to="/" activeClassName="active" onClick={toggleMenu}>Inicio</NavLink>
+                <NavLink exact to="/" onClick={scrollToTop} >Inicio</NavLink>
               </li>
               <li>
                 <a href="#historia" activeClassName="active" onClick={toggleMenu}>Historia</a>

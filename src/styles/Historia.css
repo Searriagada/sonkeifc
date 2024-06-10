@@ -1,25 +1,69 @@
-.historia-container{
+.historia-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;
 }
-.primer-panel{
+
+.primer-panel {
     display: flex;
+    max-width: 1134px;
+    max-height: 430px;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(
-        to top,
-        #555668 0%,
-        #555668 70%,
-        #FFFDD1 70%,
-        #FFFDD1 100%
-    ) ;
+    background: linear-gradient(to top,
+            #555668 0%,
+            #555668 70%,
+            #FFFDD1 70%,
+            #FFFDD1 100%);
+    color: white;
 }
 
 .primer-panel img {
     max-width: 300px;
+}
+
+.text-panel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.titulo-historia {
+    display: flex;
+    justify-content: initial;
+    font-size: 2.5em;
+    margin: 40px;
+}
+
+.texto-historia {
+    font-size: 1.5em;
+}
+
+@media (max-width: 930px) {
+    .primer-panel {
+        flex-direction: row;
+        max-height: none;
+        text-align: center;
+    }
+
+    .titulo-historia {
+        font-size: 1.5em;
+        margin: 20px 0;
+        color: black;
+    }
+
+    .texto-historia {
+        font-size: 1.2em;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .primer-panel img {
+        max-width: 100%;
+        max-height: 300px;
+        margin-bottom: 20px;
+    }
 }
