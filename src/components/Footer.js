@@ -3,7 +3,6 @@ import logo from '../assets/LOGO.webp';
 import logoInst from '../assets/instagramIcon.svg';
 import logoFace from '../assets/facebookIcon.svg';
 import logoTiktok from '../assets/tiktokIcon.svg';
-import logoWsp from '../assets/wspIcon.svg';
 import '../styles/Footer.css';
 
 export function Footer() {
