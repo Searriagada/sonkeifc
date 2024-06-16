@@ -16,7 +16,6 @@ export function CardJugador({ id, posicion, nombre, profesion, rrss, imagen }) {
                     <h3>{posicion}</h3>
                     <div className='additional-info'>
                         <div className='info-data'>
-                            <p className='info-item'>{profesion}</p>
                             <p className='info-item'> {rrss}</p>
                         </div>
                     </div>
