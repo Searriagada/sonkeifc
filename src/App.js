@@ -4,6 +4,7 @@ import { ReactComponent as HamburgerButton } from './assets/hamburger-button.svg
 import './App.css';
 import logo from './assets/LOGO.webp';
 import { Home } from './pages/Home';
+import { Footer } from './components/Footer';
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -89,6 +90,7 @@ const App = () => {
               <Route exact path ="/" element={<Home />} />
             </Routes>
           </main>
+          <Footer/>
         </div>
       </Router>
     </>
